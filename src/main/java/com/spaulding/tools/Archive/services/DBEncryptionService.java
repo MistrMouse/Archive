@@ -37,4 +37,8 @@ public class DBEncryptionService extends Archive {
 
         return (String) rows.get(0).getResult(2);
     }
+
+    public List<Row> getAllKeys() throws SQLException {
+        return execute(Archive.SYSADMIN, Archive.SYSTEM_PROPERTIES_TABLE_SELECT_ALL, new Object[]{ name }, STANDARD_ENCRYPTION_KEY);
+    }
 }

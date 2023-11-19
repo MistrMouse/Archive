@@ -27,6 +27,7 @@ public abstract class Archive {
     protected static final String AUTH_TABLE_INSERT = AUTH_TABLE + INSERT_FOLLOWER;
     protected static final String AUTH_TABLE_UPDATE = AUTH_TABLE + UPDATE_FOLLOWER;
     protected static final String SYSTEM_PROPERTIES_TABLE_SELECT = SYSTEM_PROPERTIES_TABLE + SELECT_FOLLOWER;
+    protected static final String SYSTEM_PROPERTIES_TABLE_SELECT_ALL = SYSTEM_PROPERTIES_TABLE + SELECT_FOLLOWER + "-All";
     protected static final String SYSTEM_PROPERTIES_TABLE_INSERT = SYSTEM_PROPERTIES_TABLE + INSERT_FOLLOWER;
     protected static final String SYSTEM_PROPERTIES_TABLE_UPDATE = SYSTEM_PROPERTIES_TABLE + UPDATE_FOLLOWER;
     protected static final String SYSADMIN = "SYSADMIN";
@@ -151,6 +152,14 @@ public abstract class Archive {
                 "SELECT * FROM " + SYSTEM_PROPERTIES_TABLE + " WHERE name = ? AND key = ?",
                 2,
                 "String,String"
+        };
+        execute(SYSADMIN, AUTH_REF_TABLE_INSERT, args);
+
+        args = new Object[] {
+                SYSTEM_PROPERTIES_TABLE_SELECT,
+                "SELECT * FROM " + SYSTEM_PROPERTIES_TABLE + " WHERE name = ?",
+                1,
+                "String"
         };
         execute(SYSADMIN, AUTH_REF_TABLE_INSERT, args);
 
