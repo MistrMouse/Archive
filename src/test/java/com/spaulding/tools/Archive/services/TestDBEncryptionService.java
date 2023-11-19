@@ -11,11 +11,11 @@ import java.sql.SQLException;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestDBEncryptionService {
-    private static DBEncryptionService dbEncryptionService;
+    private static DBEncryptionKeyService dbEncryptionService;
 
     @BeforeAll
     public static void init() throws SQLException {
-        dbEncryptionService = new DBEncryptionService("org.sqlite.JDBC", "jdbc:sqlite:Test.db", "admin", "p455w0rd");
+        dbEncryptionService = new DBEncryptionKeyService("org.sqlite.JDBC", "jdbc:sqlite:Test.db", "admin", "p455w0rd");
     }
 
     @Test

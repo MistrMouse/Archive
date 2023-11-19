@@ -6,14 +6,14 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import java.sql.SQLException;
 import java.util.List;
 
-public class DBEncryptionService extends Archive {
+public class DBEncryptionKeyService extends Archive {
     private String STANDARD_ENCRYPTION_KEY;
 
-    public DBEncryptionService(String className, String url, String userName, String credentials) throws SQLException {
+    public DBEncryptionKeyService(String className, String url, String userName, String credentials) throws SQLException {
         super("DB-Encryption-Service", className, url, userName, credentials);
     }
 
-    public DBEncryptionService(JdbcTemplate jdbc) throws SQLException {
+    public DBEncryptionKeyService(JdbcTemplate jdbc) throws SQLException {
         super("DB-Encryption-Service", jdbc);
     }
 
